@@ -1,34 +1,60 @@
 🕵️ Bank Fraud Rule Explorer
 A complete end-to-end fraud analytics project demonstrating anomaly detection, feature engineering, rule exploration, and an interactive Streamlit dashboard.
 
+
 ⭐ Why this project matters
+
 Banks, fintechs, and payment companies rely heavily on anomaly detection and rule-based monitoring to detect fraud, money laundering, structuring, and unusual customer behavior.
+
 This project mimics a real fraud investigation workflow, making it perfect to showcase your skills for:
+
 Fraud Analyst
+
 AML Analyst / FIU Investigator
+
 Risk Analyst
+
 Data Analyst / Data Scientist
+
 Fintech roles (Cash App, Stripe, Brex, Revolut, etc.)
 
+
 🚀 Features
+
 ✔ Synthetic dataset of 15,000 realistic transactions
+
 Includes:
+
 country, merchant category, channel
+
 timestamps
+
 transaction velocity
+
 embedded fraud behaviors (bursting, high-risk MCCs, foreign-online-crypto, extreme amounts)
 
+
 ✔ Advanced feature engineering
+
 Time-based features
+
 Customer-level aggregates
+
 Log transforms
+
 One-hot encoding
 
+
 ✔ Anomaly detection using Isolation Forest
+
 Model outputs:
+
 Anomaly score
+
 Fraud likelihood flags
+
 Recall / precision / hit-rate metrics
+
 
 ✔ Interactive Streamlit dashboard
 Explore suspicious transactions
