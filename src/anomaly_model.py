@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import IsolationForest
+from metrics import compute_basic_metrics
+
 
 from preprocessing import load_and_preprocess, get_feature_target_matrices
 
@@ -35,23 +37,17 @@ def train_and_score(csv_path: str, output_path: str = "data/transactions_with_sc
     threshold = np.quantile(anomaly_scores, 0.985)
     df["model_anomaly_flag"] = (df["model_anomaly_score"] >= threshold).astype(int)
 
-    # 6. Simple evaluation vs true fraud labels (remember: this is synthetic data)
-    fraud_mask = df["is_fraud"] == 1
-    true_frauds = fraud_mask.sum()
-    detected_frauds = (fraud_mask & (df["model_anomaly_flag"] == 1)).sum()
-    total_flagged = df["model_anomaly_flag"].sum()
+    # 6. Compute evaluation metrics using reusable function
+    metrics = compute_basic_metrics(df)
 
-    recall = detected_frauds / true_frauds if true_frauds > 0 else 0.0
-    precision = detected_frauds / total_flagged if total_flagged > 0 else 0.0
-    fraud_rate = df["is_fraud"].mean()
-
-    print("=== Model summary ===")
-    print(f"Rows: {len(df):,}")
-    print(f"True frauds in data: {true_frauds} ({fraud_rate:.2%})")
-    print(f"Flagged by model: {total_flagged} ({total_flagged / len(df):.2%})")
-    print(f"Detected frauds: {detected_frauds}")
-    print(f"Recall (of frauds): {recall:.2%}")
-    print(f"Precision (of flags): {precision:.2%}")
+    print("\nModel summary ---")
+    print(f"Rows: {metrics['total_rows']:,}")
+    print(f"True frauds: {metrics['frauds']:,} ({metrics['fraud_rate']:.2%})")
+    print(f"Flagged by model: {metrics['flags']:,} ({metrics['flag_rate']:.2%})")
+    print(f"Detected frauds (TP): {metrics['tp']:,}")
+    print(f"Recall: {metrics['recall']:.2%}")
+    print(f"Precision: {metrics['precision']:.2%}")
+    print(f"F1-score: {metrics['f1']:.2%}")
 
     # 7. Save scored dataset
     df.to_csv(output_path, index=False)

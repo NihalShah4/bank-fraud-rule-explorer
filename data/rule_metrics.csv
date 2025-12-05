@@ -1,0 +1,5 @@
+rule_id,rule_name,description,flags,frauds,tp,fp,fn,precision,recall,flag_rate,fraud_rate,f1
+R1,"High amount > 5,000","Flags single transactions with amount >= 5,000 USD.",0,233,0,0,233,0.0,0.0,0.0,0.015533333333333333,0.0
+R2,Foreign + high-risk MCC + online,Flags foreign online transactions at gambling/crypto merchants.,158,233,158,0,75,1.0,0.6781115879828327,0.010533333333333334,0.015533333333333333,0.8081841432225065
+R3,Daily velocity spike,"Flags customers with >= 6 txns and >= 3,000 USD in a single day.",0,233,0,0,233,0.0,0.0,0.0,0.015533333333333333,0.0
+R4,Night-time high-amount,Flags high-value transactions between midnight and 5 AM.,0,233,0,0,233,0.0,0.0,0.0,0.015533333333333333,0.0
