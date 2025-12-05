@@ -55,6 +55,7 @@ def get_feature_target_matrices(df: pd.DataFrame):
         "timestamp",
         "currency",
         "tx_date",
+        "device_id",  # string ID, not a numeric feature
     ]
     feature_cols = [c for c in df.columns if c not in drop_cols + ["is_fraud"]]
 
