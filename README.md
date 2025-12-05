@@ -84,32 +84,33 @@ bank-fraud-rule-explorer/
 
 ## ▶ How to Run  
 
-### 1. Create environment
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
+# 1. Create environment
+- python -m venv venv
+- venv\Scripts\activate
+- pip install -r requirements.txt
 
-2. Generate synthetic data
-python src/generate_synthetic_data.py
+# 2. Generate synthetic data
+- python src/generate_synthetic_data.py
 
-3. Train anomaly model
-python src/anomaly_model.py
+# 3. Train anomaly model
+- python src/anomaly_model.py
 
-4. Launch dashboard
-streamlit run app/streamlit_app.py
+# 4. Launch dashboard
+- streamlit run app/streamlit_app.py
 
-📊 Example Dashboard
+## 📊 Example Dashboard
+
 <img width="2560" height="1600" alt="Screenshot 2025-12-05 015413" src="https://github.com/user-attachments/assets/fbcc1118-518d-484d-8658-21d92c7baf52" />
 
-🧩 Future Enhancements
-Auto-generating fraud rules using LLM (GPT)
-SAR-like case narrative generator
-Customer-level risk scoring
-Fraud ring detection using graph analytics
-KPI benchmarking (false positive reduction)
+## 🧩 Future Enhancements
+- Auto-generating fraud rules using LLM (GPT)
+- SAR-like case narrative generator
+- Customer-level risk scoring
+- Fraud ring detection using graph analytics
+- KPI benchmarking (false positive reduction)
 
-👤 Author
-Nihal Shah
-Data Science & Fraud Analytics
-New York, USA
-GitHub: https://github.com/NihalShah4
+## 👤 Author
+# Nihal Shah
+# Data Science & Fraud Analytics
+# New York, USA
+# GitHub: https://github.com/NihalShah4
